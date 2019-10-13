@@ -1,0 +1,2 @@
+# dotfiles
+Dotfiles synchronization management
