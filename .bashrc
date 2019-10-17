@@ -18,6 +18,7 @@ alias ls="ls -G"
 alias ll="ls -la"
 alias lsd="ls -l |grep -E "^d""
 alias tree="tree -N"
+alias tre="tree -N"
 
 
 alias cp="cp -i"
