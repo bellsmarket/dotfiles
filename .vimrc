@@ -110,7 +110,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " StatusLine //You need "set laststatus=2"
 NeoBundle 'itchyny/lightline.vim'
-
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
@@ -143,10 +142,10 @@ imap  <expr><TAB>
     \ pumvisible() ? "\<C-n>" :
     \ neosnippet#expandable_or_jumpable() ?
     \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
- 
+
 smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
     \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
- 
+
 if has('conceal')
   set conceallevel=2 concealcursor=i
 endif
@@ -173,8 +172,8 @@ let g:neocomplcache_dictionary_filetype_lists = {
     \ }
 
 " Plugin key-mappings.
-inoremap <expr><C-g>     neocomplcache#undo_completion()
-inoremap <expr><C-l>     neocomplcache#complete_common_string()
+inoremap <expr><C-g> neocomplcache#undo_completion()
+inoremap <expr><C-l> neocomplcache#complete_common_string()
 
 " Recommended key-mappings.
 " <CR>: close popup and save indent.
@@ -201,17 +200,14 @@ inoremap  <C-e> <ESC>$
 
 
 inoremap {<Enter> {}<Left><CR><ESC><S-o>
-"inoremap ( ()<ESC>i
 inoremap (<Enter> ()<Left><CR><ESC><S-o>
 
 
 
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-"
 "----------------------------------------------------------
 "NERDTree"
 "----------------------------------------------------------
 let g:NERDTreeShowHidden=1
 map <C-n> :NERDTreeToggle<CR>
-

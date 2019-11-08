@@ -12,8 +12,8 @@
 
 ### Heading List
 # .bashrc && Completion
-# Environment Variable List
-# OpenSSL PATH
+# Environment Variable List
+# OpenSSL PATH
 
 
 
@@ -50,7 +50,8 @@ export PATH=/usr/local/bin:$PATH
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
-
+export PATH=/usr/local/opt/binutils/bin:$PATH
+export PATH="$PATH:$HOME/.composer/vendor/bin"
 #//////////////////////////////////////////////////////////////////
 #//////////////////////////////////////////////////////////////////
 
@@ -59,7 +60,7 @@ eval "$(pyenv init -)"
 
 
 ###################################################################
-###                       OpenSSL PATH                          ###
+###                       OpenSSL PATH                          ###
 ###################################################################
 export PATH=/usr/local/opt/openssl/bin:$PATH
 export LD_LIBRARY_PATH=/usr/local/opt/openssl/lib:$LD_LIBRARY_PATH

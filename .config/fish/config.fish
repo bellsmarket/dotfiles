@@ -1,14 +1,13 @@
-set -x LSCOLORS fxgxcxdxbxegedabagacad
 
 set -g fish_user_paths "/usr/local/sbin" $fish_user_paths
 
-set -x LESS_TERMCAP_mb (printf "\033[01;32m")  
-set -x LESS_TERMCAP_md (printf "\033[01;36m")  
-set -x LESS_TERMCAP_me (printf "\033[0m")  
-set -x LESS_TERMCAP_se (printf "\033[0m")  
-set -x LESS_TERMCAP_so (printf "\033[01;44;33m")  
-set -x LESS_TERMCAP_ue (printf "\033[0m")  
-set -x LESS_TERMCAP_us (printf "\033[01;32m")  
+set -x LESS_TERMCAP_mb (printf "\033[01;32m")
+set -x LESS_TERMCAP_md (printf "\033[01;36m")
+set -x LESS_TERMCAP_me (printf "\033[0m")
+set -x LESS_TERMCAP_se (printf "\033[0m")
+set -x LESS_TERMCAP_so (printf "\033[01;44;33m")
+set -x LESS_TERMCAP_ue (printf "\033[0m")
+set -x LESS_TERMCAP_us (printf "\033[01;32m")
 
 function fish_user_key_bindings
   bind \cr 'peco_select_history (commandline -b)'
@@ -72,3 +71,32 @@ function __ssh_history_completions --argument limit
 end
 
 complete -k -c ssh -a '(__ssh_history_completions 100)' -f -d "Remote"
+set -g fish_user_paths "/usr/local/opt/binutils/bin" $fish_user_paths
+
+
+###################################################################
+###                      bash Alias List                        ###
+###################################################################
+function grep
+    ggrep --color=auto $argv
+end
+
+function sed
+    gsed
+end
+
+function ldd
+    otool -L $argv
+end
+
+function ll
+  ls -laF
+end
+
+set -g fish_user_paths "/usr/local/opt/ruby/bin" $fish_user_paths
+set -x LSCOLORS fxgxcxdxbxegedabagacad
+set -x GOPATH $HOME/go/package  $HOME/go/workspace
+
+set -xg LC_ALL ja_JP.UTF-8
+set -xg LANG ja_JP.UTF-8
+

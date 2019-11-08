@@ -15,14 +15,33 @@
 #Directory
 alias ..='cd ..;pwd'
 alias ls="ls -G"
-alias ll="ls -la"
+alias ll="ls -laF"
 alias lsd="ls -l |grep -E "^d""
 alias tree="tree -N"
 alias tre="tree -N"
+alias vi='vim'
 
-
+#File Edit Confirmation
 alias cp="cp -i"
 alias mv="mv -i"
+
+alias gst='git status'
+alias du="du -sh ./*/"
+alias wget="wget -rnH"
+
+alias gcc="gcc -g -O0"
+alias cal="cal |lolcat -p 1"
+alias ldd="otool -L"
+alias mycli="mycli -S ${mysql}"
+alias ggr="googler"
+
+#Network
+alias ping="ping -c 10"
+
+#GNU Command
+alias grep="ggrep --color=auto"
+alias sed="gsed"
+alias objdump="gobjdump"
 
 
 # Use if colordiff exists
@@ -31,20 +50,6 @@ if [[ -x `which colordiff` ]]; then
 else
   alias diff='diff -u'
 fi
-
-alias gst='git status'
-alias du="du -sh ./*/"
-alias grep="ggrep  --color=auto"
-alias sed="gsed"
-alias gcc="gcc -g -O0"
-alias cal="cal |lolcat -p 1"
-alias ldd="otool -L"
-
-alias mycli="mycli -S ${mysql}"
-alias ggr="googler"
-
-#Network
-alias ping="ping -c 10"
 #//////////////////////////////////////////////////////////////////
 #//////////////////////////////////////////////////////////////////
 

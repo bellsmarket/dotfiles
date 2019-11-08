@@ -1,0 +1,15 @@
+.DS_Store
+*~
+.local
+.tor
+.mono
+.ms_openjdk_config
+.config/*
+!.config/fish
+!.config/karabiner/
+.config/karabiner/assets
+.config/karabiner/automatic_backups
+.vim
+sync.FilesWithGit.sh
+.gdbinit
+*.swp
