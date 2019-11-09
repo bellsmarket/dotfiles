@@ -1,0 +1,133 @@
+#!/bin/bash
+####################################################
+# Script name : vimSetting.sh
+# Discription : Set the color scheme to vim.
+# How to : #
+#     $1 : -
+#     $2 : -
+#     Example: #
+# Date :2019/11/09
+# Maker: Bellsmarket
+####################################################
+SCRIPT_DIR=$(cd $(dirname $0); pwd)
+vimDirPATH=${HOME}/dotfiles/.vim
+colorsPATH=${HOME}/.vim/colors
+
+COLORSTART="\033["
+COLOREND="\033[0;39m"
+RED="0;32m"
+
+function main() {
+  # cd ${vimDirPATH}
+  ls -laG
+  pwd
+  exit 1
+  # getMolokai
+  # getNeoBundle
+}
+
+
+function homeDirCheck() {
+  if [ -e $vimDirPATH ]; then
+    echo $vimDirPATH is Exists.
+  fi
+  #   echo ${vimDirPATH} is not Exists and Create a Directory.
+  #   mkdir -v $vimDirPATH
+  # fi
+
+
+  if [ -e $colorsPATH ]; then
+    echo $colorsPATH is Exists.
+  else
+    echo ${colorsPATH} is not Exists and Create a Directory.
+    mkdir -v ${colorsPATH}
+  fi
+
+}
+
+
+
+# Download Molokai from git
+function getMolokai() {
+  homeDirCheck
+  molokaiURL="https://github.com/tomasr/molokai"
+  targetPATH="${HOME}/.vim/colors"
+  exit 1
+  cd ~/.vim/colors/
+
+  # checkGitURL $molokaiURL $targetPATH
+  git clone $molokaiURL ${HOME}/.vim
+  # mv ${targetPATH}/molokai/colors/molokai.vim ${HOME}/.vim/colors
+
+  pwd
+  exit 1
+  if [ $? -eq 0 ]; then
+    echo Download molokai from git.
+  else
+    exit 1
+  fi
+
+
+  # mv -v molokai/colors/molokai.vim ${colorsPATH}
+  ConfirmExecution
+
+  echo -e "${COLORSTART}${RED}molokai completed successfully!!!${COLOREND}"
+}
+
+
+function ConfirmExecution() {
+  echo "----------------------------"
+  echo "Delete unnecessary folders?"
+  echo "Input yes or no."
+  read input
+
+  if [ -z $input ] ; then
+    echo "Input yes or no."
+    ConfirmExecution
+  elif [ $input = 'yes' ] || [ $input = 'YES' ] || [ $input = 'y' ] ; then
+    echo "${vimDirPATH}/molokai has been deleted."
+    rm -rf $vimDirPATH/molokai
+  elif [ $input = 'no' ] || [ $input = 'NO' ] || [ $input = 'n' ] ; then
+    echo -e "Complete the script without deleting ${COLORSTART}${RED}${vimDirPATH}/molokai.${COLOREND}"
+    echo "Delete it if necessary."
+    exit 1
+  else
+    echo "Input yes or no."
+    ConfirmExecution
+  fi
+}
+
+# Download NeoBundle from git
+function getNeoBundle() {
+  bundlePATH="${vimDirPATH}/bundle"
+  neobundleURL="https://github.com/Shougo/neobundle.vim"
+  targetPATH=${vimDirPATH}/bundle/neobundle.vim
+
+
+  if [ -e $bundlePATH ];then
+    echo not Create Directory
+  else
+    mkdir $bundlePATH
+  fi
+
+  cd $bundlePATH
+
+  checkGitURL $neobundleURL $targetPath
+  # mv $targetPATH $bundlePATH
+  echo -e "${COLORSTART}${RED}NeoBundle completed successfully!!!${COLOREND}"
+}
+
+#Check if git URL is valid
+function checkGitURL() {
+  HTTP_RESPONSE=`curl -s $1 -o /dev/null -w "%{http_code}\n"`
+  if [ ${HTTP_RESPONSE} -eq 200 ]; then
+    echo HTTP request completed successfully!!
+
+  else
+    echo ${HTTP_RESPONSE}
+    echo -e ${COLORSTART}${RED}Oooops NG.... Check Git URL and command!${COLOREND}
+    exit 1
+  fi
+}
+
+main

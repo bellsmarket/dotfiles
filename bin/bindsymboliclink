@@ -1,0 +1,96 @@
+#!/bin/bash
+####################################################
+# Script name :autsymbolicLink.sh
+# Discription :Create a symbolic link between dotfiles and the .ssh Dir.
+# How to : #
+#     $1 : -
+#     $2 : -
+#     Example: ./autsymbolicLink.sh
+# Date :2019/11/09
+# Maker: Bellsmarket
+####################################################
+COLORSTART="\033["
+COLOREND="\033[0;39m"
+GREEN="0;32m"
+arrow=${COLORSTART}${GREEN}\-\>${COLOREND}
+
+DOTDIR=${HOME}/dotfiles
+DOTFILES=(
+  ".bash_profile"
+  ".bashrc"
+  ".gdbinit"
+  ".gitconfig"
+  ".gitignore_global"
+  ".myclirc"
+  ".vimrc"
+  ".config"
+  ".git"
+  ".local"
+  ".mono"
+  ".vim"
+)
+
+
+function createSymLinkFromDotfiles() {
+
+  for FILE in ${DOTFILES[@]}; do
+    FILECOLOR=${COLORSTART}${GREEN}${FILE}${COLOREND}
+
+    # SymbolicLink 存在判定
+    if [ -e ${HOME}/${FILE} ];then
+      echo -e ${FILECOLOR}: SymbolicLink is Exists. ${arrow}  Finish processing.
+    else
+      echo -e ${FILECOLOR}: SymbolicLink is not Exists. ${arrow} Continue.
+
+      #Dot File 存在判定
+      if [ -e ${DOTDIR}/${FILE} ]; then
+        echo -e ${FILECOLOR}: DotFile is Exists. ${arrow}  Continue.
+
+          #File or Directory 判定
+          if [ -f ${DOTDIR}/${FILE} ]; then
+            echo -e ${FILECOLOR} is File. ${arrow} Create SymbolicLink.
+            ln -sf ${DOTDIR}/${FILE} ${HOME}/${FILE}
+
+          else
+            echo -e ${FILECOLOR} is Directory. ${arrow} Create SymbolicLink.
+            ln -sf ${DOTDIR}/${FILE}/ ${HOME}/${FILE}
+          fi
+
+      else
+        echo -e ${FILECOLOR}: Dot File is not Exists. ${arrow} Finish processing.
+      fi
+    fi
+    echo
+  done
+}
+
+# Synchronize .ssh Directory
+function sync_ssh() {
+  FILECOLOR=${COLORSTART}${GREEN}".ssh"${COLOREND}
+  SymlinkPATH=${HOME}/.ssh
+  backupSSHPATH=${HOME}/Dropbox/Program/Backup\ File/.ssh
+
+  if [ -e ${SymlinkPATH} ]; then
+    echo -e ${FILECOLOR}: SymbolicLink is Exists. ${arrow}  Finish processing.
+  else
+    echo -e ${FILECOLOR}: SymbolicLink is not Exists. ${arrow} Continue.
+    ln -s "${backupSSHPATH}" ${HOME}/.ssh
+    chmod 600 ${HOME}/.ssh/*
+    echo -e ${FILECOLOR}:  ${arrow} Create SymbolicLink.
+  fi
+
+}
+
+
+# Remove all symbolic links
+function debug() {
+  rm -fR ${HOME}/.bash_profile ${HOME}/.bashrc ${HOME}/.gdbinit ${HOME}/.gitconfig ${HOME}/.gitignore_global ${HOME}/.myclirc ${HOME}/.vimrc ${HOME}/.config ${HOME}/.git ${HOME}/.local ${HOME}/.mono ${HOME}/.vim
+}
+
+function main() {
+  createSymLinkFromDotfiles
+  sync_ssh
+  echo All Links were verified successfully!!!!
+}
+
+main
