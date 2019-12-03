@@ -13,7 +13,9 @@
 ### Heading List
 # .bashrc && Completion
 # Environment Variable List
+# LESS man page colors
 # OpenSSL PATH
+# Python Setting
 
 
 #if [ "$(uname)" == "Darwin" ]; then
@@ -49,28 +51,54 @@ fi
 ###################################################################
 ###               Environment Variable List                     ###
 ###################################################################
+export LANG=ja_JP.UTF-8
+
 export PATH=/usr/local/sbin:$PATH
 export PATH=/usr/local/opt/qt5/bin:$PATH
 export PATH=/usr/local/bin:$PATH
 export PATH="$PYENV_ROOT/bin:$PATH"
 export PATH=/usr/local/opt/binutils/bin:$PATH
 export PATH="$PATH:$HOME/.composer/vendor/bin"
-export PS1="\h:\W \[\e[35m\]\u\[\e[m\]\[\e[35m\]\\$\[\e[m\] "
+export CPPFLAGS="-I/usr/local/opt/qt5/include"
+export LDFLAGS="-L/usr/local/opt/qt5/lib"
+
+
+export PS1="\[\e[36m\h\]:\W \[\e[35m\]\u\[\e[m\]\[\e[35m\]\\$\[\e[m\] "
 export PS4="\[\e[1;35m\]->\[\e[0m\] "
 export LSCOLORS="fxgxcxdxbxegedabagacad"
 export LS_COLORS="di=35:ln=36:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43"
-export CPPFLAGS="-I/usr/local/opt/qt5/include"
-export LDFLAGS="-L/usr/local/opt/qt5/lib"
-export PYENV_ROOT="$HOME/.pyenv"
-export PYTHONPATH==$PYTHONPATH:/usr/local/bin/
-export PATH=${HOME}/bin:$PATH
-export PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
-eval "$(pyenv init -)"
+
 #//////////////////////////////////////////////////////////////////
 #//////////////////////////////////////////////////////////////////
 
 
+###################################################################
+###    LESS man page colors (makes Man pages more readable)     ###
+###################################################################
+#export PAGER=lv
+export LV="-Ou8 -c -Sh1;36 -Su0;4;32 -Ss7;37;1;33"
+export LESS='-i -M -R -x 2 -K'
+export PAGER=less
 
+# man() {
+#   env \
+#   LESS_TERMCAP_mb=$(printf "\e[1;31m") \
+#   LESS_TERMCAP_md=$(printf "\e[1;36") \
+#   LESS_TERMCAP_me=$(printf "\e[0m") \
+#   LESS_TERMCAP_se=$(printf "\e[0m") \
+#   LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
+#   LESS_TERMCAP_ue=$(printf "\e[0m") \
+#   LESS_TERMCAP_us=$(printf "\e[1;32m") \
+#   man "$@"
+# }
+export LESS_TERMCAP_mb=$'\e[1;35m'     # begin bold
+export LESS_TERMCAP_md=$'\e[0;36m'     # begin blink
+export LESS_TERMCAP_so=$'\e[01;44;37m' # begin reverse video
+export LESS_TERMCAP_us=$'\e[00;33m'    # begin underline
+export LESS_TERMCAP_me=$'\e[0m'        # reset bold/blink
+export LESS_TERMCAP_se=$'\e[0m'        # reset reverse video
+export LESS_TERMCAP_ue=$'\e[0m'        # reset underline
+export GROFF_NO_SGR=1                  # for konsole and gnome-terminal
 
 
 ###################################################################
@@ -81,6 +109,18 @@ export LD_LIBRARY_PATH=/usr/local/opt/openssl/lib:$LD_LIBRARY_PATH
 export CPATH=/usr/local/opt/openssl/include:$CPATH
 export LIBRARY_PATH=/usr/local/opt/openssl/lib:$LIBRARY_PATH
 export PKG_CONFIG_PATH=/usr/local/opt/openssl/lib/pkgconfig
+
+
+###################################################################
+###                       Python Setting                          ###
+###################################################################
+export PYENV_ROOT="$HOME/.pyenv"
+export PYTHONPATH==$PYTHONPATH:/usr/local/bin/
+export PATH=${HOME}/bin:$PATH
+export PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
+eval "$(pyenv init -)"
+
+
 
 #//////////////////////////////////////////////////////////////////
 #//////////////////////////////////////////////////////////////////

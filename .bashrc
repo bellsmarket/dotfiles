@@ -38,7 +38,7 @@ alias mv="mv -i"
 
 alias gst='git status'
 alias du="du -sh ./*/ 2>/dev/null"
-alias wget="wget -rnH"
+alias wget="wget -nv -nH "
 
 alias gcc="gcc -g -O0"
 alias cal="cal |lolcat -p 1"
@@ -63,36 +63,12 @@ else
 fi
 
 
-alias bashp="vim ${HOME}/.bashrc"
-alias bashr="vim ${HOME}/.bash_profile"
+alias vbr="vim ${HOME}/.bashrc"
+alias sbr="source ${HOME}/.bashrc"
+alias vbp="vim ${HOME}/.bash_profile"
+alias sbp="source ${HOME}/.bash_profile"
 #//////////////////////////////////////////////////////////////////
 #//////////////////////////////////////////////////////////////////
-
-
-
-
-
-###################################################################
-###    LESS man page colors (makes Man pages more readable)     ###
-###################################################################
-
-# man() {
-#   env \
-#   LESS_TERMCAP_mb=$(printf "\e[1;31m") \
-#   LESS_TERMCAP_md=$(printf "\e[1;36") \
-#   LESS_TERMCAP_me=$(printf "\e[0m") \
-#   LESS_TERMCAP_se=$(printf "\e[0m") \
-#   LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
-#   LESS_TERMCAP_ue=$(printf "\e[0m") \
-#   LESS_TERMCAP_us=$(printf "\e[1;32m") \
-#   man "$@"
-# }
-
-
-#//////////////////////////////////////////////////////////////////
-#//////////////////////////////////////////////////////////////////
-
-
 
 
 

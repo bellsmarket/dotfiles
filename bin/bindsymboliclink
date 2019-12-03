@@ -28,6 +28,7 @@ DOTFILES=(
   ".local"
   ".mono"
   ".vim"
+  ".lesskey"
 )
 
 

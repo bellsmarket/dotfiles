@@ -1,0 +1,3 @@
+#command
+^j forw-screen
+^k back-screen

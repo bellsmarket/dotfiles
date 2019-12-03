@@ -1,3 +1,5 @@
+
+
 "----------------------------------------------------------
 " Color Scheme Setting
 "----------------------------------------------------------
@@ -39,7 +41,6 @@ set listchars=tab:･･,trail:･,eol:¬,extends:･,precedes:«,nbsp:%
 "----------------------------------------------------------
 set wrapscan
 set ignorecase
-set smartcase
 set incsearch
 set hlsearch
 set noshowmode
@@ -90,7 +91,7 @@ if 0 | endif
 
 if has('vim_starting')
   if &compatible
-    set nocompatible               " Be iMproved
+    set nocompatible
   endif
 
   " Required:
@@ -104,16 +105,21 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 " Let NeoBundle manage NeoBundle
 " Required:
 NeoBundleFetch 'Shougo/neobundle.vim'
+
 "----------------------------------------------------------
 "NeoBundle Plug-Ins - Start
 "----------------------------------------------------------
 
 " StatusLine //You need "set laststatus=2"
 NeoBundle 'itchyny/lightline.vim'
+NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'plasticboy/vim-markdown'
+NeoBundle 'kannokanno/previm'
+NeoBundle 'tyru/open-browser.vim'
 "----------------------------------------------------------
 "NeoBundle Plug-Ins - End
 "----------------------------------------------------------
@@ -203,6 +209,8 @@ inoremap {<Enter> {}<Left><CR><ESC><S-o>
 inoremap (<Enter> ()<Left><CR><ESC><S-o>
 
 
+noremap <C-j> <C-d>
+noremap <C-k> <C-u>
 
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
@@ -210,4 +218,27 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 "NERDTree"
 "----------------------------------------------------------
 let g:NERDTreeShowHidden=1
-map <C-n> :NERDTreeToggle<CR>
+"map <C-n> :NERDTreeToggle<CR>
+
+
+"----------------------------------------------------------
+"MarkDown e"
+"----------------------------------------------------------
+""" markdown {{{
+  autocmd BufRead,BufNewFile *.mkd  set filetype=markdown
+  autocmd BufRead,BufNewFile *.md  set filetype=markdown
+  " Need: kannokanno/previm
+  nnoremap <silent> <C-p> :PrevimOpen<CR> " Ctrl-pでプレビュー
+  " 自動で折りたたまないようにする
+  let g:vim_markdown_folding_disabled=1
+" }}}
+"
+"
+"
+
+"----------------------------------------------------------
+"vim-multiple-cursors"
+"----------------------------------------------------------
+"call neobundle#begin(expand('~/.vim/bundle/'))
+"NeoBundle 'terryma/vim-multiple-cursors'
+"call neobundle#end()

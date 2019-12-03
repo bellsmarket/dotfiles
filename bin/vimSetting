@@ -19,11 +19,11 @@ RED="0;32m"
 
 function main() {
   # cd ${vimDirPATH}
-  ls -laG
-  pwd
-  exit 1
+  # ls -laG
+  homeDirCheck
   # getMolokai
   # getNeoBundle
+  exit 1
 }
 
 
@@ -40,7 +40,7 @@ function homeDirCheck() {
     echo $colorsPATH is Exists.
   else
     echo ${colorsPATH} is not Exists and Create a Directory.
-    mkdir -v ${colorsPATH}
+    # mkdir -v ${colorsPATH}
   fi
 
 }
