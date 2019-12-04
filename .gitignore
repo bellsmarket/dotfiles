@@ -13,3 +13,4 @@
 sync.FilesWithGit.sh
 .gdbinit
 *.swp
+*.copy

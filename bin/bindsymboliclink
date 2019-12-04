@@ -29,7 +29,8 @@ DOTFILES=(
   ".mono"
   ".vim"
   ".lesskey"
-)
+  ".ideavimrc"
+  )
 
 
 function createSymLinkFromDotfiles() {

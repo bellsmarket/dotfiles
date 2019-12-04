@@ -1,0 +1,7 @@
+noremap <C-j> <C-d>
+noremap <C-k> <C-u>
+noremap  <C-a> <ESC>^
+noremap  <C-e> <ESC>$
+inoremap  <C-a> <ESC>^
+inoremap  <C-e> <ESC>$
+inoremap <C-c> <ESC>

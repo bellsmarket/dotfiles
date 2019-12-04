@@ -211,6 +211,8 @@ inoremap (<Enter> ()<Left><CR><ESC><S-o>
 
 noremap <C-j> <C-d>
 noremap <C-k> <C-u>
+nnoremap  <C-c><C-c> :<C-u>nohlsearch<cr><Esc>
+
 
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
@@ -218,7 +220,7 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 "NERDTree"
 "----------------------------------------------------------
 let g:NERDTreeShowHidden=1
-"map <C-n> :NERDTreeToggle<CR>
+map <C-\> :NERDTreeToggle<CR>
 
 
 "----------------------------------------------------------
@@ -233,12 +235,3 @@ let g:NERDTreeShowHidden=1
   let g:vim_markdown_folding_disabled=1
 " }}}
 "
-"
-"
-
-"----------------------------------------------------------
-"vim-multiple-cursors"
-"----------------------------------------------------------
-"call neobundle#begin(expand('~/.vim/bundle/'))
-"NeoBundle 'terryma/vim-multiple-cursors'
-"call neobundle#end()
