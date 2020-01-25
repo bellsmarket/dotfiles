@@ -8,15 +8,6 @@
 # Colors
 # MYSQL Setting
 
-#if [ "$(uname)" == "Darwin" ]; then
-    # Do something under Mac OS X platform
-#elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
-    # Do something under GNU/Linux platform
-##elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ]; then
-    # Do something under 32 bits Windows NT platform
-#elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW64_NT" ]; then
-    # Do something under 64 bits Windows NT platform
-#fi
 
 ###################################################################
 ###                      bash_Command List                      ###
@@ -36,6 +27,9 @@ alias rm='rm -i'
 alias cp="cp -i"
 alias mv="mv -i"
 
+alias chmod='chmod --preserve-root'
+alias chown='chown --preserve-root'
+
 alias gst='git status'
 alias du="du -sh ./*/ 2>/dev/null"
 alias wget="wget -nv -nH "
@@ -43,7 +37,6 @@ alias wget="wget -nv -nH "
 alias gcc="gcc -g -O0"
 alias cal="cal |lolcat -p 1"
 alias ldd="otool -L"
-alias mycli="mycli -S ${mysql}"
 alias ggr="googler"
 
 #Network
@@ -62,11 +55,18 @@ else
   alias diff='diff -u'
 fi
 
-
+# Vim Command 
 alias vbr="vim ${HOME}/.bashrc"
 alias sbr="source ${HOME}/.bashrc"
 alias vbp="vim ${HOME}/.bash_profile"
 alias sbp="source ${HOME}/.bash_profile"
+alias vim="/usr/local/bin/vim"
+alias pip="pip3"
+
+
+#Backup Command
+alias rsync="rsync -v"
+
 #//////////////////////////////////////////////////////////////////
 #//////////////////////////////////////////////////////////////////
 

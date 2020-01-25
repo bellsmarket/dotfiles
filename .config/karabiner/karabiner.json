@@ -140,6 +140,38 @@
                             "to": {
                                 "key_code": "backslash"
                             }
+                        },
+                        {
+                            "from": {
+                                "key_code": "japanese_kana"
+                            },
+                            "to": {
+                                "key_code": "right_command"
+                            }
+                        },
+                        {
+                            "from": {
+                                "key_code": "left_command"
+                            },
+                            "to": {
+                                "key_code": "left_option"
+                            }
+                        },
+                        {
+                            "from": {
+                                "key_code": "japanese_eisuu"
+                            },
+                            "to": {
+                                "key_code": "left_command"
+                            }
+                        },
+                        {
+                            "from": {
+                                "key_code": "left_alt"
+                            },
+                            "to": {
+                                "key_code": "left_control"
+                            }
                         }
                     ]
                 },

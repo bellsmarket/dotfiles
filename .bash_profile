@@ -52,12 +52,13 @@ fi
 ###               Environment Variable List                     ###
 ###################################################################
 export LANG=ja_JP.UTF-8
-
-export PATH=/usr/local/sbin:$PATH
-export PATH=/usr/local/opt/qt5/bin:$PATH
+export PATH=${HOME}/bin:$PATH
 export PATH=/usr/local/bin:$PATH
-export PATH="$PYENV_ROOT/bin:$PATH"
+export PATH=/usr/local/sbin:$PATH
+export PATH=${HOME}/Dropbox/Program/ShellScript:$PATH
+export PATH=/usr/local/opt/qt5/bin:$PATH
 export PATH=/usr/local/opt/binutils/bin:$PATH
+export PATH="$PYENV_ROOT/bin:$PATH"
 export PATH="$PATH:$HOME/.composer/vendor/bin"
 export CPPFLAGS="-I/usr/local/opt/qt5/include"
 export LDFLAGS="-L/usr/local/opt/qt5/lib"
@@ -103,7 +104,7 @@ export GROFF_NO_SGR=1                  # for konsole and gnome-terminal
 
 ###################################################################
 ###                       OpenSSL PATH                          ###
-###################################################################
+################################################################
 export PATH=/usr/local/opt/openssl/bin:$PATH
 export LD_LIBRARY_PATH=/usr/local/opt/openssl/lib:$LD_LIBRARY_PATH
 export CPATH=/usr/local/opt/openssl/include:$CPATH
@@ -114,13 +115,30 @@ export PKG_CONFIG_PATH=/usr/local/opt/openssl/lib/pkgconfig
 ###################################################################
 ###                       Python Setting                          ###
 ###################################################################
-export PYENV_ROOT="$HOME/.pyenv"
-export PYTHONPATH==$PYTHONPATH:/usr/local/bin/
-export PATH=${HOME}/bin:$PATH
-export PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
-eval "$(pyenv init -)"
+### Pyenv ---
+# export PYENV_ROOT="$HOME/.pyenv"
+# export PYTHONPATH==/usr/local/bin/:$PYTHONPATH
+# export PATH=${HOME}/bin:$PATH
+# export PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
+# eval "$(pyenv init -)"
 
-
+### Virtualenv ---
 
 #//////////////////////////////////////////////////////////////////
 #//////////////////////////////////////////////////////////////////
+# added by Anaconda3 2019.10 installer
+# >>> conda init >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$(CONDA_REPORT_ERRORS=false '/Users/bellsmarket/opt/anaconda3/bin/conda' shell.bash hook 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    \eval "$__conda_setup"
+else
+    if [ -f "/Users/bellsmarket/opt/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/bellsmarket/opt/anaconda3/etc/profile.d/conda.sh"
+        CONDA_CHANGEPS1=false conda activate base
+    else
+        \export PATH="/Users/bellsmarket/opt/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda init <<<
