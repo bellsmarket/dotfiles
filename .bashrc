@@ -27,8 +27,8 @@ alias rm='rm -i'
 alias cp="cp -i"
 alias mv="mv -i"
 
-alias chmod='chmod --preserve-root'
-alias chown='chown --preserve-root'
+#alias chmod='chmod --preserve-root'
+#alias chown='chown --preserve-root'
 
 alias gst='git status'
 alias du="du -sh ./*/ 2>/dev/null"
@@ -67,6 +67,8 @@ alias pip="pip3"
 #Backup Command
 alias rsync="rsync -v"
 
+alias his="history"
+alias nic="networksetup -listallhardwareports"
 #//////////////////////////////////////////////////////////////////
 #//////////////////////////////////////////////////////////////////
 
@@ -177,7 +179,6 @@ export HISTFILESIZE=50000
 ###################################################################
 
 #mysql_path="/tmp/mysql.sock"
-#mysql="/Applications/MAMP/tmp/mysql/mysql.sock"
+mysql="/Applications/MAMP/tmp/mysql/mysql.sock"
 
-#//////////////////////////////////////////////////////////////////
 #//////////////////////////////////////////////////////////////////

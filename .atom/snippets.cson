@@ -1,0 +1,378 @@
+# Your snippets
+#
+# Atom snippets allow you to enter a simple prefix in the editor and hit tab to
+# expand the prefix into a larger code block with templated values.
+#
+# You can create a new snippet in this file by typing "snip" and then hitting
+# tab.
+#
+# An example CoffeeScript snippet to expand log to console.log:
+#
+# '.source.coffee':
+#   'Console log':
+#     'prefix': 'log'
+#     'body': 'console.log $1'
+#
+# Each scope (e.g. '.source.coffee' above) can only be declared once.
+#
+# This file uses CoffeeScript Object Notation (CSON).
+# If you are unfamiliar with CSON, you can read more about it in the
+# Atom Flight Manual:
+# http://flight-manual.atom.io/using-atom/sections/basic-customization/#_cson
+
+
+#   Bellsmarket snippet Table of Contents
+# ・cLang
+# ・ShellScript
+# ・Javascript
+# ・PHP
+# ・Python
+
+# ・HTML
+#
+####################################################
+###  cLang - Start
+####################################################
+'.source.c':
+  'main':
+    'prefix': 'main'
+    'body': """
+    #include <stdio.h>
+    int main (void) {
+      $1
+      return 0;
+    }
+"""
+####################################################
+###  cLang - End
+####################################################
+
+
+####################################################
+###  Shell Script - Start
+####################################################
+
+'.source.shell':
+  'Array':
+    'prefix': 'array'
+    'body': """
+      IFS_bak=$IFS
+      IFS=$'\\\\n'
+      array=(cat dog bird)
+    """
+
+  'BASENAME1':
+    'prefix': 'basename'
+    'body': 'BASENAME=$(cd $(dirname $0) && pwd)'
+
+  'BASENAME2':
+    'prefix': 'basename2'
+    'body': 'BASENAME=${0%/*}'
+
+
+  'FILNAME':
+    'prefix': 'dirname'
+    'body': 'FILENAME=${0##*/}'
+
+  'IFS':
+    'prefix': 'ifs'
+    'body':  """
+    IFS_bak=$IFS
+    IFS=$'\\\\n'
+     """
+
+   'PARAM':
+     'prefix': 'param'
+     'body':  """
+     echo ${val[@]} #配列
+     echo ${#val[@]} #配列の要素数
+     echo $@ #位置パラメータ
+     echo $# #位置パラメータの個数
+     echo $? #直前のコマンドの終了ステータス
+     echo $$ #現在のプロセスID
+     echo $! #最後に実行したバックグラウンドコマンドのプロセスID
+      """
+
+  'Descirition':
+    'prefix': 'bin'
+    'body': """
+    #!/bin/bash
+    ####################################################
+    # Script name : ---.sh
+    # Discription :
+    # How to : # ---.sh
+    #     \\$1 : -
+    #     \\$2 : -
+    #     Example: # ---.sh
+    # Date : 2019/02/12
+    # Maker: Bellsmarket
+    ####################################################
+    """
+  'readonly':
+    'prefix': 'readonly'
+    'body': 'readonly SCRIPT_NAME=${0##*/}'
+  'printf':
+    'prefix': 'printf'
+    'body': 'printf \'%s\\\\n\''
+
+####################################################
+###  Shell Script - End
+####################################################
+
+
+
+####################################################
+### Javascript - Start
+####################################################
+'.source.js':
+  'match Method':
+    'prefix': 'm'
+    'body': 'match(\/${1:regex}\/, ${2:str})'
+
+  'console.log':
+    'prefix': 'c'
+    'body': 'console.log(${1:val});'
+####################################################
+### Javascript - End
+####################################################
+
+
+
+####################################################
+###  PHP - Start
+####################################################
+'.text.html.php':
+  'preg_match':
+    'prefix': 'm'
+    'body': 'preg_match(\/${1:regex}\/, ${2:\$str})'
+
+  'var_dump':
+    'prefix': 'v'
+    'body': 'var_dump(${1:\$str});'
+
+####################################################
+###  PHP - End
+####################################################
+
+####################################################
+###  Python - Start
+####################################################
+'.source.python':
+  'shebang':
+    'prefix': 'python'
+    'body': '#!/usr/bin/env python'
+  'library':
+    'prefix': 'impo'
+    'body': """
+    import sys
+    import os
+    import math
+    from bs4 import BeautifulSoup
+    from matplotlib import pyplot as plt
+
+    
+
+    """
+
+
+####################################################
+###  Python - End
+####################################################
+
+
+####################################################
+###  HTML - Start
+####################################################
+'.text.html.basic, .text.html.php':
+  'jqury':
+    'prefix': 'jqeury'
+    'body':'<script src=\"https://code.jquery.com/jquery-3.6.0.js\" integrity=\"sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=\" crossorigin=\"anonymous\"></script>'
+
+  'console.log':
+    'prefix': 'c'
+    'body': 'console.log(ele)'
+
+  'templete':
+    "prefix": '!'
+    'body': """
+    <!DOCTYPE html>
+    <html lang="ja">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title>タイトル</title>
+      <meta name="description" content="">
+      <meta name="keywords" content="キーワード"> <!-- 入力が必要 -->
+      <!-- ===== OGP START ===== -->
+      <meta property="og:locale" content="ja_JP" />
+      <meta property="og:type" content="website" />
+      <meta property="og:title" content="Webサイトのタイトル" /> <!-- 入力が必要 -->
+      <meta property="og:description" content="Webサイトのディスクリプション" /> <!-- 入力が必要 -->
+      <meta property="og:url" content="ドメイン"> <!-- 入力が必要 -->
+      <meta property="og:site_name" content="Webサイトのタイトル" /> <!-- 入力が必要 -->
+      <meta property="og:image" content="https://ドメイン/img/twitter_card.png" /> <!-- ドメイン入力が必要 -->
+      <meta property="og:image:secure_url" content="https://ドメイン/img/twitter_card.png" /> <!-- ドメイン入力が必要 -->
+      <!-- ===== twitterTag START ===== -->
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="Webサイトのタイトル" /> <!-- 入力が必要 -->
+      <meta name="twitter:description" content="Webサイトのディスクリプション" /> <!-- 入力が必要 -->
+      <meta name="twitter:site" content="@Twitterアカウント" /> <!-- アカウント名入力が必要 -->
+      <meta name="twitter:image" content="https://ドメイン/img/twitter_card.png" /> <!-- ドメイン入力が必要 -->
+      <meta name="twitter:creator" content="@Twitterアカウント" /> <!-- アカウント名入力が必要 -->
+      <!-- ========== favicon START ========== -->
+      <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+      <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+      <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png" />
+      <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png" />
+      <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png" />
+      <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png" />
+      <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png" />
+      <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png" />
+      <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png" />
+      <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png" />
+      <!-- ===== head START ===== -->
+      <link rel="shortcut icon" href="/share/v4/img/logo.ico">
+      <link rel="apple-touch-icon-precomposed" href="/share/v4/sp/img/apple-touch-icon-precomposed.png">
+      <meta name="format-detection" content="telephone=no">
+      <!--CSS-->
+      <link rel="stylesheet" href="/css/style.css">
+      <link rel="stylesheet" href="/css/common.css">
+      <link rel="stylesheet" href="/css/content.css">
+      <!--JavaScript-->
+      <script src="/js/script.js"></script>
+      <script src="/js/common.js"></script>
+      <!--[if (gte IE 8)&(lte IE 9)]>
+      <script type="text/javascript" src="/js/html5shiv-printshiv.min.js"></script>
+      <link rel="stylesheet" href="/media/gantry5/engines/nucleus/css/nucleus-ie9.css" type="text/css"/>
+      <script type="text/javascript" src="/js/matchmedia.polyfill.js"></script>
+      <![endif]-->
+      <!-- ===== head END ===== -->
+    </head>
+    <body>
+    </body>
+    </html>
+    """
+
+  'console.log2':
+    'prefix': 'c'
+    'body': 'console.log(${1:val});'
+
+  'タグ一覧':
+    'prefix': 'head'
+    'body': """
+      <meta property="og:title" content="$1">
+      <meta property="og:type" content="$2">
+      <meta property="og:url" content="$3">
+      <meta property="og:image" content="$4">
+      <meta property="og:site_name" content="$5">
+      <meta property="og:description" content="$6" />
+      <meta property="fb:app_id" content="$7">
+    """
+  'テーブル':
+    'prefix': 'table'
+    'body': """
+      <div class="table-responsive mb25">
+        <table class="table table-bordered table-fixed">
+          <tr><th>試験案内・ 申込書配布 開始日</th><th>申込 受付期間</th><th>第１次 試験日</th><th>第２次 試験日</th><th>最終合格 発表日</th><th>試験案内 PDF</th><th>申込様式 PDF</th></tr>
+          <tr><td>01</td><td>02</td><td>03</td><td>04</td><td>05</td><td>05</td><td>05</td></tr>
+        </table>
+      </div>
+    """
+  'コンテンツ':
+    'prefix': 'content'
+    'body': """
+      <div id="l-###-page" class="l-content-section">
+        <section class="l-section-item">
+          <h2 class="l-section-heading">令和２年度競争試験について</h2>
+          <div class="section-item-wrap">
+            <h3 class="section-item-wrap-heading">給与</h3>
+            <p class="section-item-wrap-detail mb25">初任給は、経歴、採用職種によりこの金額を超える場合があります。</p>
+          </div>
+        </section>
+      </div>
+    """
+
+####################################################
+###  HTML - End
+####################################################
+
+
+
+####################################################
+###  CSS - Start
+####################################################
+
+'.source.css, .source.sass, .source.css.scss':
+  'レスポンシブ':
+    'prefix': 'media'
+    'body': """@@charset "UTF-8";
+    @@media screen and (min-width: 480px) {
+      /* 画面サイズが 480pxからはここを読み込む */
+
+    }
+
+    media screen and(min-width: 768px) and (max-width: 1024px) {
+      /* 画面サイズが 768pxから1024pxまではここを読み込む */
+    }
+
+    @media screen and (min-width: 1024px) {
+        /* 画面サイズが 1024px以上はここを読み込む */
+    }
+    """
+
+  'template':
+    'prefix': 'template'
+    'body': """
+      @charset "UTF-8";
+
+      /*
+      ### table of contents ###
+      ### 目次一覧 ###
+      top.css
+      content.css
+      layout.css
+
+      ・HEADER
+        ・l-global-nav
+        ・l-humbergur-menu
+        ・
+      ・Main Visual(Slider)
+      ・Hero Header
+      ・CONTENTS
+      ・FOOTER
+
+      */
+      /* ============= Common START ============= */
+      /* ============= Common END ============= */
+
+
+      /* ============ HEADER START ============ */
+      /* ============= HEADER END ============= */
+
+      /* ============= Breadcrumbs START ============= */
+      /* ============= Breadcrumbs END ============= */
+
+
+      /* ============ Main Visual(Slider) START ============ */
+      /* ============= Main Visual(Slider) END ============= */
+
+
+      /* ============ CONTENTS START ============ */
+      /* ============= CONTENTS END ============= */
+
+      /* ============ FOOTER START ============ */
+      /* ============= FOOTER END ============= */
+
+
+      /* ============ /contents-page/ START ============ */
+      /* ============ コンテンツページ START ============ */
+
+      /* ============ /contents-page/ END ============ */
+      /* ============ コンテンツページ END ============ */
+
+
+    """
+####################################################
+###  CSS - End
+####################################################

@@ -116,29 +116,45 @@ export PKG_CONFIG_PATH=/usr/local/opt/openssl/lib/pkgconfig
 ###                       Python Setting                          ###
 ###################################################################
 ### Pyenv ---
-# export PYENV_ROOT="$HOME/.pyenv"
+export PYENV_ROOT="$HOME/.pyenv"
 # export PYTHONPATH==/usr/local/bin/:$PYTHONPATH
 # export PATH=${HOME}/bin:$PATH
 # export PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
-# eval "$(pyenv init -)"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
 
 ### Virtualenv ---
 
+
 #//////////////////////////////////////////////////////////////////
 #//////////////////////////////////////////////////////////////////
-# added by Anaconda3 2019.10 installer
-# >>> conda init >>>
+
+
+
+###################################################################
+###                       PHP PATH                           ###
+################################################################
+export PATH="/usr/local/opt/php@7.4/bin:$PATH"
+export PATH="/usr/local/opt/php@7.4/sbin:$PATH"
+export PATH="${HOME}/.composer/vendor/bin:$PATH"
+
+###################################################################
+###                       Ruby PATH                          ###
+################################################################
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+# >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$(CONDA_REPORT_ERRORS=false '/Users/bellsmarket/opt/anaconda3/bin/conda' shell.bash hook 2> /dev/null)"
+__conda_setup="$('/Users/bellsmarket/opt/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
-    \eval "$__conda_setup"
+    eval "$__conda_setup"
 else
-    if [ -f "/Users/bellsmarket/opt/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/bellsmarket/opt/anaconda3/etc/profile.d/conda.sh"
-        CONDA_CHANGEPS1=false conda activate base
+    if [ -f "/Users/bellsmarket/opt/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/bellsmarket/opt/miniconda3/etc/profile.d/conda.sh"
     else
-        \export PATH="/Users/bellsmarket/opt/anaconda3/bin:$PATH"
+        export PATH="/Users/bellsmarket/opt/miniconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
-# <<< conda init <<<
+# <<< conda initialize <<<
+
